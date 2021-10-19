@@ -10,31 +10,28 @@ import { Router } from '@angular/router';
 })
 export class CreateComponent implements OnInit {
 
-  productForm: FormGroup({
-    name:new FormControl()
+  productForm = new FormGroup({
+    name: new FormControl(''),
+    description: new FormControl(''),
+    price: new FormControl(''),
+    quantity: new FormControl('')
   });
 
-ngOnInit() {
-  this.productForm= this.fb.group({
-    name: [''],
-    description: [''],
-    price: [''],
-    quantity: [''],    
-  })
-}
+  ngOnInit() {
+    this.productForm = this.fb.group({
+      name: [''],
+      description: [''],
+      price: [''],
+      quantity: [''],
+    })
+  }
 
-  constructor(public fb: FormBuilder,
-    private router: Router,
-    public crudService: CrudService) { }
+  constructor(public fb: FormBuilder, private router: Router, public crudService: CrudService) { }
 
-    
-
-    submitForm() {
-      this.crudService.create(this.productForm.value).subscribe(res => {
-        console.log('Product created!')
-        this.router.navigateByUrl('/crud/home/')})
-  
-    }
-
-  
+  submitForm() {
+    this.crudService.create(this.productForm.value).subscribe(res => {
+      console.log('Product created!')
+      this.router.navigateByUrl('/crud/home/')
+    })
+  }
 }
