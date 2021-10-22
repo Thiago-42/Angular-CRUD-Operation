@@ -46,6 +46,13 @@
       "price": "100",
       "quantity": "3",
       "id": 6
+    },
+    {
+      "name": "Thiago",
+      "description": "lorem ipsum dollar sit",
+      "price": "$350",
+      "quantity": "2",
+      "id": 7
     }
   ]
 }
